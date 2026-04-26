@@ -55,7 +55,7 @@
         <!--Task Editor View Controller-->
         <scene sceneID="Ted-SC-000">
             <objects>
-                <viewController storyboardIdentifier="TaskEditorVC" customClass="TaskEditorViewController" id="Ted-VC-000" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskEditorVC" customClass="TaskEditorViewController" customModule="lab2" customModuleProvider="target" id="Ted-VC-000" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ted-VW-000">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
