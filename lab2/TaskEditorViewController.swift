@@ -30,16 +30,21 @@ class TaskEditorViewController: UIViewController {
     private func setupUI() {
         title = "Редактор задач"
         view.backgroundColor = .systemBackground
-        
+        titleTextField.returnKeyType = .done
+        titleTextField.delegate = self
+         
         // Настройка TextView (как в лекции UIKit 3)
         commentTextView.layer.borderWidth = 0.5
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         commentTextView.layer.cornerRadius = 8
         commentTextView.font = UIFont.systemFont(ofSize: 16)
-        
+        commentTextView.keyboardDismissMode = .interactive
+         
         // Настройка DatePicker
         datePicker.datePickerMode = .dateAndTime
-        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.preferredDatePickerStyle = .automatic
+        
+        setupKeyboardDismiss()
     }
     
     private func configureForMode() {
@@ -138,5 +143,31 @@ class TaskEditorViewController: UIViewController {
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
+    }
+    
+    private func setupKeyboardDismiss() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(dismissKeyboard))
+        ]
+        titleTextField.inputAccessoryView = toolbar
+        commentTextView.inputAccessoryView = toolbar
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension TaskEditorViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
