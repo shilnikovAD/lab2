@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_3" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="zTL-AY-gvb">
+            <objects>
+                <tableViewController id="icB-zK-KXE" customClass="MainViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1Mh-5D-Mvd">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="k0s-Ar-gMU">
+                                <rect key="frame" x="0.0" y="50" width="402" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k0s-Ar-gMU" id="Ffm-ji-sdG">
+                                    <rect key="frame" x="0.0" y="0.0" width="402" height="51"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="icB-zK-KXE" id="LMD-my-qEF"/>
+                            <outlet property="delegate" destination="icB-zK-KXE" id="1vw-DT-j9N"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Задачи" id="bnF-UR-F58"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wyv-Ev-qz0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="110"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YTx-3l-OZk">
+            <objects>
+                <navigationController id="nTW-Pi-0NX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ueH-tB-Osv">
+                        <rect key="frame" x="0.0" y="124" width="402" height="54"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="icB-zK-KXE" kind="relationship" relationship="rootViewController" id="9RL-bY-tfb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSk-x9-Fse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-133" y="756"/>
+        </scene>
+        <!--Task Editor View Controller-->
+        <scene sceneID="Ted-SC-000">
+            <objects>
+                <viewController storyboardIdentifier="TaskEditorVC" customClass="TaskEditorViewController" id="Ted-VC-000" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ted-VW-000">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название:" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-L1-000">
+                                <rect key="frame" x="16" y="120" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название задачи" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-TF-000">
+                                <rect key="frame" x="16" y="149" width="370" height="34"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Комментарий:" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-L2-000">
+                                <rect key="frame" x="16" y="199" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-TV-000">
+                                <rect key="frame" x="16" y="228" width="370" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата и время:" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-L3-000">
+                                <rect key="frame" x="16" y="320" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-DP-000">
+                                <rect key="frame" x="0" y="349" width="402" height="216"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-BS-000">
+                                <rect key="frame" x="16" y="581" width="370" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Сохранить"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="Ted-VC-000" eventType="touchUpInside" id="Ted-AS-000"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-BC-000">
+                                <rect key="frame" x="16" y="637" width="370" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Завершить"/>
+                                <connections>
+                                    <action selector="completeTapped:" destination="Ted-VC-000" eventType="touchUpInside" id="Ted-AC-000"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ted-BD-000">
+                                <rect key="frame" x="16" y="693" width="370" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Удалить">
+                                    <color key="titleColor" red="1" green="0.14913141728639603" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteTapped:" destination="Ted-VC-000" eventType="touchUpInside" id="Ted-AD-000"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeAreaLayoutGuide" id="Ted-SG-000"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ted-L1-000" firstAttribute="top" secondItem="Ted-SG-000" secondAttribute="top" constant="20" id="Ted-C01"/>
+                            <constraint firstItem="Ted-L1-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C02"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-L1-000" secondAttribute="trailing" constant="16" id="Ted-C03"/>
+                            <constraint firstItem="Ted-TF-000" firstAttribute="top" secondItem="Ted-L1-000" secondAttribute="bottom" constant="8" id="Ted-C04"/>
+                            <constraint firstItem="Ted-TF-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C05"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-TF-000" secondAttribute="trailing" constant="16" id="Ted-C06"/>
+                            <constraint firstItem="Ted-TF-000" firstAttribute="height" constant="34" id="Ted-C07"/>
+                            <constraint firstItem="Ted-L2-000" firstAttribute="top" secondItem="Ted-TF-000" secondAttribute="bottom" constant="16" id="Ted-C08"/>
+                            <constraint firstItem="Ted-L2-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C09"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-L2-000" secondAttribute="trailing" constant="16" id="Ted-C10"/>
+                            <constraint firstItem="Ted-TV-000" firstAttribute="top" secondItem="Ted-L2-000" secondAttribute="bottom" constant="8" id="Ted-C11"/>
+                            <constraint firstItem="Ted-TV-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C12"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-TV-000" secondAttribute="trailing" constant="16" id="Ted-C13"/>
+                            <constraint firstItem="Ted-TV-000" firstAttribute="height" constant="80" id="Ted-C14"/>
+                            <constraint firstItem="Ted-L3-000" firstAttribute="top" secondItem="Ted-TV-000" secondAttribute="bottom" constant="16" id="Ted-C15"/>
+                            <constraint firstItem="Ted-L3-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C16"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-L3-000" secondAttribute="trailing" constant="16" id="Ted-C17"/>
+                            <constraint firstItem="Ted-DP-000" firstAttribute="top" secondItem="Ted-L3-000" secondAttribute="bottom" constant="8" id="Ted-C18"/>
+                            <constraint firstItem="Ted-DP-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" id="Ted-C19"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-DP-000" secondAttribute="trailing" id="Ted-C20"/>
+                            <constraint firstItem="Ted-BS-000" firstAttribute="top" secondItem="Ted-DP-000" secondAttribute="bottom" constant="16" id="Ted-C21"/>
+                            <constraint firstItem="Ted-BS-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C22"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-BS-000" secondAttribute="trailing" constant="16" id="Ted-C23"/>
+                            <constraint firstItem="Ted-BS-000" firstAttribute="height" constant="44" id="Ted-C24"/>
+                            <constraint firstItem="Ted-BC-000" firstAttribute="top" secondItem="Ted-BS-000" secondAttribute="bottom" constant="12" id="Ted-C25"/>
+                            <constraint firstItem="Ted-BC-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C26"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-BC-000" secondAttribute="trailing" constant="16" id="Ted-C27"/>
+                            <constraint firstItem="Ted-BC-000" firstAttribute="height" constant="44" id="Ted-C28"/>
+                            <constraint firstItem="Ted-BD-000" firstAttribute="top" secondItem="Ted-BC-000" secondAttribute="bottom" constant="12" id="Ted-C29"/>
+                            <constraint firstItem="Ted-BD-000" firstAttribute="leading" secondItem="Ted-SG-000" secondAttribute="leading" constant="16" id="Ted-C30"/>
+                            <constraint firstItem="Ted-SG-000" firstAttribute="trailing" secondItem="Ted-BD-000" secondAttribute="trailing" constant="16" id="Ted-C31"/>
+                            <constraint firstItem="Ted-BD-000" firstAttribute="height" constant="44" id="Ted-C32"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Редактор задач" id="Ted-NI-000"/>
+                    <connections>
+                        <outlet property="titleTextField" destination="Ted-TF-000" id="Ted-OT-001"/>
+                        <outlet property="commentTextView" destination="Ted-TV-000" id="Ted-OT-002"/>
+                        <outlet property="datePicker" destination="Ted-DP-000" id="Ted-OT-003"/>
+                        <outlet property="completeButton" destination="Ted-BC-000" id="Ted-OT-004"/>
+                        <outlet property="deleteButton" destination="Ted-BD-000" id="Ted-OT-005"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ted-FR-000" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="110"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
